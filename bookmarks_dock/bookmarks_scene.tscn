@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://bkq3dvcxiwurm"]
+
+[ext_resource type="Script" uid="uid://jyyj0mfy76r0" path="res://addons/bookmarks_dock/bookmarks_scene.gd" id="1_palwt"]
+[ext_resource type="StyleBox" uid="uid://dcgc2eld6q2un" path="res://addons/bookmarks_dock/bookmark_panels.tres" id="2_a2po6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a2po6"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="BookmarksScene" type="Control" unique_id=1188210793]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_palwt")
+
+[node name="Header" type="Panel" parent="." unique_id=1549097796]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.036000002
+offset_bottom = 0.11999893
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("2_a2po6")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Header" unique_id=1194941040]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="title_bookmars_browser" type="Label" parent="Header/HBoxContainer" unique_id=1599064935]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Assembly Functions"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="sort_bookmarks" type="CheckButton" parent="Header/HBoxContainer" unique_id=463995537]
+layout_mode = 2
+button_pressed = true
+text = "Sort"
+flat = true
+
+[node name="bookmark_list" type="ItemList" parent="." unique_id=1067272631]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.041
+anchor_right = 1.0
+anchor_bottom = 0.9620001
+offset_top = -0.2800026
+offset_bottom = 0.039916992
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_a2po6")
+allow_reselect = true
+item_count = 26
+item_0/text = "_start"
+item_1/text = "clearZeroTile"
+item_2/text = "displayTutorial"
+item_3/text = "fillGrid"
+item_4/text = "gameLoop"
+item_5/text = "getColumnUnderMouse"
+item_6/text = "getGridHasData"
+item_7/text = "getIsGridSolved"
+item_8/text = "getRowUnderMouse"
+item_9/text = "getTileUnderMouse"
+item_10/text = "getZeroTile"
+item_11/text = "getZeroTileColumn"
+item_12/text = "getZeroTileRow"
+item_13/text = "godotEvent"
+item_14/text = "hideMessageWindow"
+item_15/text = "mouseClicked"
+item_16/text = "resetGame"
+item_17/text = "sendFullGrid"
+item_18/text = "setup"
+item_19/text = "showMessageWindow"
+item_20/text = "solveGridCheat"
+item_21/text = "spawnBlueGem"
+item_22/text = "spawnGem"
+item_23/text = "switchCells"
+item_24/text = "toogleHints"
+item_25/text = "useActiveDrop"
+metadata/_edit_use_anchors_ = true
+
+[node name="Footer" type="Panel" parent="." unique_id=1249947179]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.96700007
+anchor_right = 1.0020001
+anchor_bottom = 1.0040001
+offset_left = 3.0
+offset_top = -0.36010742
+offset_right = -0.84033203
+offset_bottom = -0.32006836
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("2_a2po6")
+metadata/_edit_use_anchors_ = true
+
+[node name="include_user_bookmarks" type="CheckButton" parent="Footer" unique_id=2000986029]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+text = "Include Other Bookmarks"
+
+[connection signal="toggled" from="Header/HBoxContainer/sort_bookmarks" to="." method="_button_toggled"]
+[connection signal="item_selected" from="bookmark_list" to="." method="_on_item_list_item_selected"]
+[connection signal="toggled" from="Footer/include_user_bookmarks" to="." method="_button_toggled"]

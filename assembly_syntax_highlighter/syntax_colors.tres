@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SyntaxColor" format=3 uid="uid://bidmpuj08ltqv"]
+
+[ext_resource type="Script" uid="uid://cq2he1vc2jeho" path="res://addons/assembly_syntax_highlighter/syntax_colors.gd" id="1_q6svo"]
+
+[resource]
+script = ExtResource("1_q6svo")
+constants = Color(0.827451, 0.654902, 0.5411765, 1)
+labels = Color(1, 0.7607843, 0, 1)
+registers = Color(1, 0.17254902, 0.49411765, 1)
